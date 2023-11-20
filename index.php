@@ -1,8 +1,12 @@
 <?php
 require_once 'User.php';
+require_once 'Database.php'; // Assuming your Database class is in a separate file
 
-// Assuming you have an instance of the User class
-$user = new User('localhost', 'gptexchange', 'root', '314422ah');
+// Assuming you have an instance of the Database class
+$database = new Database('localhost', 'gptexchange', 'root', '314422ah');
+
+// Pass the Database instance to the User class
+$user = new User($database);
 
 // Check if the user is logged in (cookie exists)
 if (isset($_COOKIE['user_id'])) {
